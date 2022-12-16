@@ -11,9 +11,6 @@ class ProductDetailModel extends Equatable {
         toppings: List<Topping>.from(json['toppings'].map((x) => Topping.fromJson(x))),
         isAvaliable: json['isAvaliable'],
         categoryId: json['categoryId'],
-        createdAt: DateTime.parse(json['createdAt']),
-        updatedAt: DateTime.parse(json['updatedAt']),
-        v: json['__v'],
         note: json['note'],
         totalWithToppings: json['totalWithToppings'],
       );
@@ -27,9 +24,6 @@ class ProductDetailModel extends Equatable {
     required this.toppings,
     required this.isAvaliable,
     required this.categoryId,
-    required this.createdAt,
-    required this.updatedAt,
-    required this.v,
     this.note,
     this.uuid,
     this.totalWithToppings,
@@ -43,9 +37,7 @@ class ProductDetailModel extends Equatable {
   final List<Topping> toppings;
   final bool isAvaliable;
   final String categoryId;
-  final DateTime createdAt;
-  final DateTime updatedAt;
-  final int v;
+
   final String? note;
   final num? totalWithToppings;
   final String? uuid;
@@ -59,9 +51,6 @@ class ProductDetailModel extends Equatable {
         'toppings': List<dynamic>.from(toppings.map((x) => x.toJson())),
         'isAvaliable': isAvaliable,
         'categoryId': categoryId,
-        'createdAt': createdAt.toIso8601String(),
-        'updatedAt': updatedAt.toIso8601String(),
-        '__v': v,
         'uuid': uuid,
         'note': note,
         'totalWithToppings': totalWithToppings,
@@ -78,10 +67,7 @@ class ProductDetailModel extends Equatable {
       toppings,
       isAvaliable,
       categoryId,
-      createdAt,
       uuid,
-      updatedAt,
-      v,
       note,
       totalWithToppings,
     ];
@@ -96,9 +82,6 @@ class ProductDetailModel extends Equatable {
     List<Topping>? toppings,
     bool? isAvaliable,
     String? categoryId,
-    DateTime? createdAt,
-    DateTime? updatedAt,
-    int? v,
     String? note,
     String? uuid,
     num? totalWithToppings,
@@ -112,18 +95,10 @@ class ProductDetailModel extends Equatable {
       toppings: toppings ?? this.toppings,
       isAvaliable: isAvaliable ?? this.isAvaliable,
       categoryId: categoryId ?? this.categoryId,
-      createdAt: createdAt ?? this.createdAt,
-      updatedAt: updatedAt ?? this.updatedAt,
       uuid: uuid ?? this.uuid,
-      v: v ?? this.v,
       note: note ?? this.note,
       totalWithToppings: totalWithToppings ?? this.totalWithToppings,
     );
-  }
-
-  @override
-  String toString() {
-    return 'ProductDetailModel(id: $id, name: $name, price: $price, description: $description, imgUrl: $imgUrl, toppings: $toppings, isAvaliable: $isAvaliable, categoryId: $categoryId, createdAt: $createdAt, updatedAt: $updatedAt, v: $v, note: $note, totalWithToppings: $totalWithToppings, uuid: $uuid)';
   }
 }
 
@@ -133,9 +108,6 @@ class Topping extends Equatable {
         name: json['name'],
         type: json['type'],
         options: List<Option>.from(json['options'].map((x) => Option.fromJson(x))),
-        createdAt: DateTime.parse(json['createdAt']),
-        updatedAt: DateTime.parse(json['updatedAt']),
-        v: json['__v'],
         maxOptions: json['maxOptions'],
         minOptions: json['minOptions'],
       );
@@ -145,9 +117,6 @@ class Topping extends Equatable {
     required this.name,
     required this.type,
     required this.options,
-    required this.createdAt,
-    required this.updatedAt,
-    required this.v,
     required this.minOptions,
     required this.maxOptions,
   });
@@ -156,9 +125,7 @@ class Topping extends Equatable {
   final String name;
   final String type;
   final List<Option> options;
-  final DateTime createdAt;
-  final DateTime updatedAt;
-  final int v;
+
   final int minOptions;
   final int maxOptions;
 
@@ -167,11 +134,8 @@ class Topping extends Equatable {
         'name': name,
         'type': type,
         'options': List<dynamic>.from(options.map((x) => x.toJson())),
-        'createdAt': createdAt.toIso8601String(),
-        'updatedAt': updatedAt.toIso8601String(),
         'maxOptions': maxOptions,
         'minOptions': minOptions,
-        '__v': v,
       };
 
   @override
@@ -181,9 +145,6 @@ class Topping extends Equatable {
       name,
       type,
       options,
-      createdAt,
-      updatedAt,
-      v,
       minOptions,
       maxOptions,
     ];
@@ -194,9 +155,6 @@ class Topping extends Equatable {
     String? name,
     String? type,
     List<Option>? options,
-    DateTime? createdAt,
-    DateTime? updatedAt,
-    int? v,
     int? minOptions,
     int? maxOptions,
   }) {
@@ -205,9 +163,6 @@ class Topping extends Equatable {
       name: name ?? this.name,
       type: type ?? this.type,
       options: options ?? this.options,
-      createdAt: createdAt ?? this.createdAt,
-      updatedAt: updatedAt ?? this.updatedAt,
-      v: v ?? this.v,
       minOptions: minOptions ?? this.minOptions,
       maxOptions: maxOptions ?? this.maxOptions,
     );
@@ -223,38 +178,26 @@ class Option extends Equatable {
         name: json['name'],
         price: json['price'],
         imgUrl: json['imgUrl'],
-        createdAt: DateTime.parse(json['createdAt']),
-        updatedAt: DateTime.parse(json['updatedAt']),
-        v: json['__v'],
       );
   const Option({
     required this.id,
     required this.name,
     required this.price,
     required this.imgUrl,
-    required this.createdAt,
-    required this.updatedAt,
-    required this.v,
   });
 
   final String id;
   final String name;
   final int price;
   final String imgUrl;
-  final DateTime createdAt;
-  final DateTime updatedAt;
-  final int v;
 
   Map<String, dynamic> toJson() => {
         '_id': id,
         'name': name,
         'price': price,
         'imgUrl': imgUrl,
-        'createdAt': createdAt.toIso8601String(),
-        'updatedAt': updatedAt.toIso8601String(),
-        '__v': v,
       };
 
   @override
-  List<Object?> get props => [id, name, price, imgUrl, createdAt, updatedAt, v];
+  List<Object> get props => [id, name, price, imgUrl];
 }

@@ -7,7 +7,7 @@ class ProductDetailModel extends Equatable {
         price: json['price'],
         description: json['description'],
         uuid: json['uuid'],
-        imgUrl: json['imgUrl'],
+        imgUrl: json['img'],
         toppings: List<Topping>.from(json['toppings'].map((x) => Topping.fromJson(x))),
         isAvaliable: json['isAvaliable'],
         categoryId: json['categoryId'],
@@ -177,7 +177,7 @@ class Option extends Equatable {
         id: json['_id'],
         name: json['name'],
         price: json['price'],
-        imgUrl: json['imgUrl'],
+        imgUrl: json['img'],
       );
   const Option({
     required this.id,

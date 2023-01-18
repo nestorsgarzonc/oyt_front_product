@@ -47,7 +47,7 @@ class ProductDetailModel extends Equatable {
         'name': name,
         'price': price,
         'description': description,
-        'imgUrl': imgUrl,
+        'img': imgUrl,
         'toppings': List<dynamic>.from(toppings.map((x) => x.toJson())),
         'isAvaliable': isAvaliable,
         'categoryId': categoryId,
@@ -195,7 +195,7 @@ class Option extends Equatable {
         '_id': id,
         'name': name,
         'price': price,
-        'imgUrl': imgUrl,
+        'img': imgUrl,
       };
 
   @override

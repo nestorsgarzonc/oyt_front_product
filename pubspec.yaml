@@ -13,6 +13,8 @@ dependencies:
     sdk: flutter
   oyt_front_core:
     path: ../oyt_front_core
+  oyt_front_menu:
+    path: ../oyt_front_menu
 
 dev_dependencies:
   flutter_test:

@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:oyt_front_menu/enum/topping_options_type.dart';
 
 class ProductDetailModel extends Equatable {
   factory ProductDetailModel.fromJson(Map<String, dynamic> json) => ProductDetailModel(
@@ -106,7 +107,7 @@ class Topping extends Equatable {
   factory Topping.fromJson(Map<String, dynamic> json) => Topping(
         id: json['_id'],
         name: json['name'],
-        type: json['type'],
+        type: ToppingOptionsType.fromString(json['type']),
         options: List<Option>.from(json['options'].map((x) => Option.fromJson(x))),
         maxOptions: json['maxOptions'],
         minOptions: json['minOptions'],
@@ -123,23 +124,22 @@ class Topping extends Equatable {
 
   final String id;
   final String name;
-  final String type;
+  final ToppingOptionsType? type;
   final List<Option> options;
-
   final int minOptions;
   final int maxOptions;
 
   Map<String, dynamic> toJson() => {
         '_id': id,
         'name': name,
-        'type': type,
+        'type': type?.widgetLabel,
         'options': List<dynamic>.from(options.map((x) => x.toJson())),
         'maxOptions': maxOptions,
         'minOptions': minOptions,
       };
 
   @override
-  List<Object> get props {
+  List<Object?> get props {
     return [
       id,
       name,
@@ -153,7 +153,7 @@ class Topping extends Equatable {
   Topping copyWith({
     String? id,
     String? name,
-    String? type,
+    ToppingOptionsType? type,
     List<Option>? options,
     int? minOptions,
     int? maxOptions,

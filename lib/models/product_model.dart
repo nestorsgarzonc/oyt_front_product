@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:equatable/equatable.dart';
 import 'package:oyt_front_menu/enum/topping_options_type.dart';
 
@@ -138,6 +139,13 @@ class Topping extends Equatable {
         'minOptions': minOptions,
       };
 
+  Map<String, dynamic> toMapCRUD() => {
+        'name': name,
+        'type': type?.widgetLabel,
+        'maxOptions': maxOptions,
+        'minOptions': minOptions,
+      };
+
   @override
   List<Object?> get props {
     return [
@@ -198,6 +206,26 @@ class Option extends Equatable {
         'img': imgUrl,
       };
 
+  Map<String, dynamic> toMapCRUD() => {
+        'name': name,
+        'price': price,
+        if (imgUrl.isNotEmpty) 'img': imgUrl,
+      };
+
   @override
   List<Object> get props => [id, name, price, imgUrl];
+
+  Option copyWith({
+    String? id,
+    String? name,
+    int? price,
+    String? imgUrl,
+  }) {
+    return Option(
+      id: id ?? this.id,
+      name: name ?? this.name,
+      price: price ?? this.price,
+      imgUrl: imgUrl ?? this.imgUrl,
+    );
+  }
 }

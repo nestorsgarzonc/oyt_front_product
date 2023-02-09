@@ -109,7 +109,7 @@ class Topping extends Equatable {
         id: json['_id'],
         name: json['name'],
         type: ToppingOptionsType.fromString(json['type']),
-        options: List<Option>.from(json['options'].map((x) => Option.fromJson(x))),
+        options: List<ToppingOption>.from(json['options'].map((x) => ToppingOption.fromJson(x))),
         maxOptions: json['maxOptions'],
         minOptions: json['minOptions'],
       );
@@ -126,7 +126,7 @@ class Topping extends Equatable {
   final String id;
   final String name;
   final ToppingOptionsType? type;
-  final List<Option> options;
+  final List<ToppingOption> options;
   final int minOptions;
   final int maxOptions;
 
@@ -162,7 +162,7 @@ class Topping extends Equatable {
     String? id,
     String? name,
     ToppingOptionsType? type,
-    List<Option>? options,
+    List<ToppingOption>? options,
     int? minOptions,
     int? maxOptions,
   }) {
@@ -180,14 +180,14 @@ class Topping extends Equatable {
   bool get stringify => true;
 }
 
-class Option extends Equatable {
-  factory Option.fromJson(Map<String, dynamic> json) => Option(
+class ToppingOption extends Equatable {
+  factory ToppingOption.fromJson(Map<String, dynamic> json) => ToppingOption(
         id: json['_id'],
         name: json['name'],
         price: json['price'],
         imgUrl: json['img'],
       );
-  const Option({
+  const ToppingOption({
     required this.id,
     required this.name,
     required this.price,
@@ -215,13 +215,13 @@ class Option extends Equatable {
   @override
   List<Object> get props => [id, name, price, imgUrl];
 
-  Option copyWith({
+  ToppingOption copyWith({
     String? id,
     String? name,
     int? price,
     String? imgUrl,
   }) {
-    return Option(
+    return ToppingOption(
       id: id ?? this.id,
       name: name ?? this.name,
       price: price ?? this.price,

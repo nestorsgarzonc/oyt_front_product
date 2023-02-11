@@ -11,7 +11,7 @@ class ProductDetailModel extends Equatable {
         uuid: json['uuid'],
         imgUrl: json['img'],
         toppings: List<Topping>.from(json['toppings'].map((x) => Topping.fromJson(x))),
-        isAvaliable: json['isAvaliable'],
+        isAvailable: json['isAvailable'],
         categoryId: json['categoryId'],
         note: json['note'],
         totalWithToppings: json['totalWithToppings'],
@@ -24,7 +24,7 @@ class ProductDetailModel extends Equatable {
     required this.description,
     required this.imgUrl,
     required this.toppings,
-    required this.isAvaliable,
+    required this.isAvailable,
     required this.categoryId,
     this.note,
     this.uuid,
@@ -37,7 +37,7 @@ class ProductDetailModel extends Equatable {
   final String description;
   final String imgUrl;
   final List<Topping> toppings;
-  final bool isAvaliable;
+  final bool isAvailable;
   final String categoryId;
 
   final String? note;
@@ -51,7 +51,7 @@ class ProductDetailModel extends Equatable {
         'description': description,
         'img': imgUrl,
         'toppings': List<dynamic>.from(toppings.map((x) => x.toJson())),
-        'isAvaliable': isAvaliable,
+        'isAvailable': isAvailable,
         'categoryId': categoryId,
         'uuid': uuid,
         'note': note,
@@ -67,7 +67,7 @@ class ProductDetailModel extends Equatable {
       description,
       imgUrl,
       toppings,
-      isAvaliable,
+      isAvailable,
       categoryId,
       uuid,
       note,
@@ -82,7 +82,7 @@ class ProductDetailModel extends Equatable {
     String? description,
     String? imgUrl,
     List<Topping>? toppings,
-    bool? isAvaliable,
+    bool? isAvailable,
     String? categoryId,
     String? note,
     String? uuid,
@@ -95,7 +95,7 @@ class ProductDetailModel extends Equatable {
       description: description ?? this.description,
       imgUrl: imgUrl ?? this.imgUrl,
       toppings: toppings ?? this.toppings,
-      isAvaliable: isAvaliable ?? this.isAvaliable,
+      isAvailable: isAvailable ?? this.isAvailable,
       categoryId: categoryId ?? this.categoryId,
       uuid: uuid ?? this.uuid,
       note: note ?? this.note,
